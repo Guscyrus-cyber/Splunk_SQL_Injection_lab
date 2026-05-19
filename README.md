@@ -167,7 +167,7 @@ dashboards become more meaningful\
 \
 Qury:\
 index=web\
-\
+\Please Refer to the first image in the repository.
 \
 \
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
