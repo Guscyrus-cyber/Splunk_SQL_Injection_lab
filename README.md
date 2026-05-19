@@ -1,4 +1,4 @@
-Splunk Enterprise SQL Injection Detection & Web Attack Investigation Lab\
+Splunk Enterprise SQL Injection Detection & Web Attack Investigation Lab
 
 
 Lab Overview
@@ -30,8 +30,8 @@ sqlmap
 
 HTTP response codes analyzed:
 
-403\
-500\
+403
+500
 
 Investigation Steps Completed
 
@@ -96,19 +96,11 @@ URI Analysis\
 Alerting and Reporting\
 Incident Investigation Workflow
 
-This lab demonstrated how Splunk Enterprise can be used to detect, investigate, visualize, enrich, report, and automate SQL injection monitoring workflows within a realistic SOC investigation environment. The completed project simulated real-world web attack investigation processes including attacker identification, malicious payload analysis, HTTP response monitoring, threat intelligence enrichment, dashboard monitoring, and automated alerting capabilities suitable for Tier 1 and Tier 2 SOC investigation workflows and cybersecurity portfolio presentation.
+This lab demonstrated how Splunk Enterprise can be used to detect, investigate, visualize, enrich, report, and automate SQL injection monitoring workflows within a realistic SOC investigation environment. The completed project simulated real-world web attack investigation processes including attacker identification, malicious payload analysis, HTTP response monitoring, threat intelligence enrichment, dashboard monitoring, and automated alerting capabilities.
 
-**Splunk Enterprise SQL Injection Detection & Web Attack Investigation Lab\
-\
-Splunk Enterprise SQL Injection Detection & Web Attack Investigation Lab\
-\
-Splunk Enterprise SQL Injection Detection & Web Attack Investigation Lab\
-\**
-Top of Form
 
-Bottom of Form
 
-SQL injection is a web attack where an attacker puts malicious SQL code inside a website input, URL, or request. The goal is to trick the web application into sending harmful commands to the database.\
+SQL injection is a web attack where an attacker puts malicious SQL code inside a website input, URL, or request. The goal is to trick the web application into sending harmful commands to the database.
 \
 This SQL Injection SOC lab focuses on monitoring and investigating simulated web attack traffic using Splunk Enterprise. The dataset contains realistic SQL injection attempts, malicious payloads, attacker IP addresses, targeted URLs, HTTP status codes, and suspicious user agents. The lab demonstrates how Splunk can search, detect, monitor, and analyze web-based attacks through SPL queries, dashboards, reports, and visualizations. The investigation process includes identifying SQL injection payloads, tracking attacker behavior, analyzing targeted web resources, and reviewing server responses. The lab also covers dashboard creation, scheduled reporting, and SOC-style web attack investigation techniques. By the end of the lab, the environment functions as a realistic Tier 1 and Tier 2 SOC web security monitoring and incident analysis project suitable for GitHub documentation and professional portfolio presentation.**\**
 \
