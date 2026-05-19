@@ -4,7 +4,7 @@ Splunk Enterprise SQL Injection Detection & Web Attack Investigation Lab
 Lab Overview
 
 
-This lab focused on detecting, monitoring, analyzing, and investigating SQL injection attack activity using Splunk Enterprise within a simulated SOC environment. A custom web attack dataset containing both normal web traffic and malicious SQL injection activity was ingested into the web index and analyzed through SPL queries, visualizations, dashboard panels, lookup enrichment, reports, and automated alerts. The investigation identified suspicious attacker IP addresses, SQL injection payloads, targeted application resources, abnormal HTTP response behavior, and suspicious user agents associated with automated attack activity.\
+This lab focused on detecting, monitoring, analyzing, and investigating SQL injection attack activity using Splunk Enterprise within a simulated SOC environment. A custom web attack dataset containing both normal web traffic and malicious SQL injection activity was ingested into the web index and analyzed through SPL queries, visualizations, dashboard panels, lookup enrichment, reports, and automated alerts. The investigation identified suspicious attacker IP addresses, SQL injection payloads, targeted application resources, abnormal HTTP response behavior, and suspicious user agents associated with automated attack activity.
 
 Dataset Overview
 
@@ -30,7 +30,7 @@ sqlmap
 
 HTTP response codes analyzed:
 
-403
+403\
 500
 
 Investigation Steps Completed
