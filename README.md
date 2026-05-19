@@ -2,12 +2,12 @@ Splunk Enterprise SQL Injection Detection & Web Attack Investigation Lab\
 \
 \
 Lab Overview
--------------------------------------------------------------------------
+
 
 This lab focused on detecting, monitoring, analyzing, and investigating SQL injection attack activity using Splunk Enterprise within a simulated SOC environment. A custom web attack dataset containing both normal web traffic and malicious SQL injection activity was ingested into the web index and analyzed through SPL queries, visualizations, dashboard panels, lookup enrichment, reports, and automated alerts. The investigation identified suspicious attacker IP addresses, SQL injection payloads, targeted application resources, abnormal HTTP response behavior, and suspicious user agents associated with automated attack activity.\
 \
 Dataset Overview
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 The dataset contained simulated web attack logs including:
 
@@ -34,7 +34,7 @@ HTTP response codes analyzed:
 500\
 \
 Investigation Steps Completed
------------------------------
+
 
 ### Step 1 — Confirm Data Ingestion
 
@@ -195,7 +195,6 @@ In this step, I confirmed that the SQL injection web attack logs were successful
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\
 \
 Step 2. Detect SQL Injection Activity
-==================================================================================================================================================================================================================================================================================================================================================================================================
 
 index=web action=sql_injection_attempt\
 \| table \_time src_ip method uri status user_agent\
@@ -234,7 +233,6 @@ This step focused on analyzing the source IP addresses associated with SQL injec
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\
 \
 Step 4. Analyze Targeted URLs
-================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
 
 index=web action=sql_injection_attempt\
 \| stats count by uri\
@@ -330,7 +328,6 @@ This visualization displays the most active attacker IP addresses responsible fo
 \
 \
 HTTP Status Code Distribution
-======================================================================================================================================================================================================================================================
 
 index=web\
 \| stats count by status\
@@ -353,7 +350,7 @@ index=web action=sql_injection_attempt\
 
 \
 This visualization identifies the web application pages most frequently targeted during the SQL injection attacks. The chart highlights attack concentration against pages such as admin.php, login.php, and products.
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 SQL Injection Activity Over Time\
 \
@@ -363,12 +360,11 @@ index=web action=sql_injection_attempt\
 \
 \
 \
-============================================================================================================================================================================
 
 \
 \
 \
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 This visualization displays SQL injection activity across time and separates the attacks by source IP address. The timeline helps identify attack frequency, repeated scanning behavior, and periods of increased malicious activity during the investigation.
 
@@ -392,7 +388,7 @@ index=web action=sql_injection_attempt\
 \
 \
 This panel and it’s visualization chart display the most active attacker IP addresses responsible for SQL injection attempts against the web application.
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 # Panel 2. SQL Injection Timeline
 
@@ -403,7 +399,6 @@ index=web action=sql_injection_attempt\
 \
 \
 This panel visualizes SQL injection activity over time and separates attacks by source IP address to identify repeated or automated attack behavior.
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Panel 3. Most Targeted URIs
 
@@ -418,7 +413,7 @@ This panel identifies the most frequently targeted web application pages and SQL
 \
 \
 Panel 4. HTTP Error Analysis
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 index=web\
 \| stats count by status
@@ -428,7 +423,7 @@ index=web\
 \
 \
 This panel displays the distribution of HTTP response codes generated during the investigation, including successful traffic, blocked attacks, and server error activity.
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 # Panel 5. Suspicious User Agents
 
@@ -457,7 +452,6 @@ index=web action=sql_injection_attempt\
 \
 \
 This panel identifies suspicious tools and automated attack activity observed in the dataset, including user agents such as:
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 sqlmap\
 curl\
@@ -469,7 +463,7 @@ This step focused on building SOC dashboard panels inside Splunk Enterprise to c
 Step 8. Dashboard Creation\
 \
 Panel 1. Top Attacker IPs
-========================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
+
 
 index=web action=sql_injection_attempt\
 \| stats count by src_ip\
@@ -508,7 +502,7 @@ This step focused on building a complete SQL Injection SOC Monitoring Dashboard 
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\
 \
 Lookup: A lookup in Splunk is a way to add extra information to existing log data. For example:
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 Splunk sees an IP address\
 lookup adds a label or description to that IP Address
@@ -536,7 +530,7 @@ index=web\
 \
 \
 Step 9. Lookup Table
-====================
+
 
 This step focuses on using a lookup table inside Splunk Enterprise to enrich the SQL injection investigation data with additional threat intelligence information. A lookup table allows attacker IP addresses to be labeled with custom descriptions such as malicious activity, suspicious behavior, or threat reputation categories. This helps SOC analysts quickly identify known attackers and improves investigation visibility during web attack analysis.
 
@@ -620,13 +614,11 @@ index=web\
 \
 \
 The output of the lookup query B displayed enriched SQL injection investigation results by combining the original web attack logs with threat intelligence labels stored inside the custom lookup table. The query matched application resources using suspicious user agents such as sqlmap. This lookup enrichment process demonstrated how Splunk Enterprise can combine raw security logs with external threat intelligence information to improve attacker the src_ip values from the web logs against the IP addresses stored in the attacker_ip_lookup lookup definition and automatically appended descriptive labels to matching attacker IP addresses. The results showed attacker IP activity, targeted SQL injection URIs, HTTP response codes, and suspicious user agents associated with the web attacks. The IP address 123.123.123.123 was successfully identified and labeled as a known SQL injection attacker, while the query also displayed malicious SQL payloads targeting administrative, login, and product identification, SOC monitoring visibility, and web attack investigation workflows.
-===================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
 
 Bottom of Form
 
 So the step 9 focused on creating a lookup table inside Splunk Enterprise to enrich the SQL injection investigation data with attacker IP classifications and threat intelligence labels. A custom CSV lookup file was created containing malicious external IP addresses, suspicious automated scanners, credential extraction activity, and normal internal traffic labels. The lookup was integrated into Splunk searches to automatically associate descriptive threat labels with attacker IP addresses during the investigation. This demonstrated how Splunk lookup tables can enhance SOC analysis, improve attacker identification, and support threat intelligence enrichment workflows during web application security investigations.\
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Step 10. Report creation\
 \
