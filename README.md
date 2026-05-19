@@ -584,6 +584,7 @@ blocked attack behavior using HTTP 403\
 abnormal server activity using HTTP 500\
 \
 Creating Scheduled Report/Alert
+Please refer to the last image.
 
 
 
